@@ -39,11 +39,11 @@ router.delete("/peliculas/:id", (req, res) => {
   const index = peliculas.findIndex((item) => item.id === id);
 
   if (index === -1) {
-    res.status(404).json({ error: "Pelicula no encontrada" });
+    return res.status(404).json({ error: "Pelicula no encontrada" });
   }
 
   peliculas.splice(index, 1);
-  res.status(204).send("Eliminada correctamente");
+  res.status(204).send();
 });
 
 export default router;
